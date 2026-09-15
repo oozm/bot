@@ -412,7 +412,7 @@ watch(expression, (v) => ecris('expression', v))
  * 产品名，页脚字标。不翻译——是品牌。正文写「xBot」，三语的 `app.name` /
  * `app.title` 用同一形式。
  */
-const NOM = 'xBot'
+const NOM = 'ZHAOJS'
 
 /* ----------------------------------------------------------------- 情绪 */
 
