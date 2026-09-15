@@ -37,5 +37,11 @@
     "module": "commonjs",
     "esModuleInterop": true
   },
-  "cSpell.words": ["Dipatch", "Emiter", "Persistedstate", "Tmui"]
+  "cSpell.words": [
+    "Dipatch",
+    "Emiter",
+    "Persistedstate",
+    "Tmui",
+    "xbot"
+  ]
 }

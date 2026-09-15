@@ -1,4 +1,4 @@
-# bloub
+# xBot
 
 An SVG recreation of the x.ai bot avatar: **one filled black shape** that morphs between 14 states, **two white shapes** for the eyes that morph independently, on a plain background. No animation library.
 

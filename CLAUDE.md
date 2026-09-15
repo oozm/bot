@@ -1,4 +1,4 @@
-# bloub: notes for Claude
+# xBot: notes for Claude
 
 ## Commands
 
@@ -8,6 +8,7 @@ pnpm test      # vitest
 pnpm build     # vue-tsc --noEmit && vite build
 pnpm lint      # oxlint
 pnpm format    # oxfmt
+pnpm deploy    # build + wrangler (main CI le fait aussi)
 ```
 
 Vue 3.5 + Vite 8 + TS strict + Tailwind 4 (`@tailwindcss/vite` plugin, no `tailwind.config.js`), pnpm.

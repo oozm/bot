@@ -409,11 +409,10 @@ watch(color, (v) => ecris('couleur', v))
 watch(expression, (v) => ecris('expression', v))
 
 /**
- * 产品名，页脚大字用大写。不翻译——是品牌。大写是这块页脚的字标：正文写「bloub」
- * 全小写，三语的 `app.name` 和 `app.title` 用那种形式。所以常量写在这里，
- * 不从 `t('app.name')` 取，大小写不同。
+ * 产品名，页脚字标。不翻译——是品牌。正文写「xBot」，三语的 `app.name` /
+ * `app.title` 用同一形式。
  */
-const NOM = 'ZHAOJS'
+const NOM = 'xBot'
 
 /* ----------------------------------------------------------------- 情绪 */
 

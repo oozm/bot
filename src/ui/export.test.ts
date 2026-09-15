@@ -212,10 +212,10 @@ describe('nettoyage du markup', () => {
 describe('nom de fichier', () => {
   it('se construit sur les ids et pas sur les libelles', () => {
     expect(nomFichier('goutte', 'neutre', 'encre', 'png')).toBe(
-      'bloub-goutte-neutre-encre.png',
+      'xbot-goutte-neutre-encre.png',
     )
     expect(nomFichier('cercle', 'hilare', 'violet', 'svg')).toBe(
-      'bloub-cercle-hilare-violet.svg',
+      'xbot-cercle-hilare-violet.svg',
     )
   })
 
@@ -234,12 +234,12 @@ describe('nom de fichier', () => {
   /* Un nom de montage doit rester lisible : « Cycle par défaut », pas « cyclepardfaut ». */
   it('translittere les accents et separe les mots', () => {
     expect(nomFichier('Cycle par défaut', '', '', 'mp4')).toBe(
-      'bloub-cycle-par-defaut.mp4',
+      'xbot-cycle-par-defaut.mp4',
     )
-    expect(nomFichier('Été 2026', '', '', 'gif')).toBe('bloub-ete-2026.gif')
+    expect(nomFichier('Été 2026', '', '', 'gif')).toBe('xbot-ete-2026.gif')
   })
 
   it('survit a des ids vides', () => {
-    expect(nomFichier('', '', '', 'png')).toBe('bloub.png')
+    expect(nomFichier('', '', '', 'png')).toBe('xbot.png')
   })
 })

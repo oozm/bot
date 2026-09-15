@@ -47,5 +47,3 @@ First batch of post-launch fixes. Every entry was reproduced and measured before
 
 - `StateDef.hint`: 15 hardcoded French strings nothing read, inside a type meant to become public.
 
-[unreleased]: https://github.com/jeremy-prt/bloub/compare/v0.1.1...HEAD
-[0.1.1]: https://github.com/jeremy-prt/bloub/releases/tag/v0.1.1

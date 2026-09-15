@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "bloub",
+  "name": "bot",
   "compatibility_date": "2026-09-11",
   "assets": { "directory": "./dist" },
-  "routes": [{ "pattern": "bloub.uilist.com", "custom_domain": true }]
+  "routes": [{ "pattern": "bot.uilist.com", "custom_domain": true }]
 }

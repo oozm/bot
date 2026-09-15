@@ -249,7 +249,7 @@ export function sansCommentaires(markup: string) {
 }
 
 /**
- * `bloub-goutte-neutre-encre.png`.
+ * `xbot-goutte-neutre-encre.png`.
  *
  * Construit sur les **ids** et non sur les libelles traduits : le nom du fichier
  * ne doit pas changer avec la langue de l'interface.
@@ -282,7 +282,7 @@ export function nomFichier(
     propre(couleur),
     propre(suffixe),
   ].filter(Boolean)
-  return `bloub${morceaux.map((m) => `-${m}`).join('')}.${extension}`
+  return `xbot${morceaux.map((m) => `-${m}`).join('')}.${extension}`
 }
 
 /**
