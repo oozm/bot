@@ -11,15 +11,14 @@ import {
 import { NOTIF_BLUE } from '@/bot/decor'
 import { BotEngine, type BotFrame } from '@/bot/engine'
 import { clamp, easings } from '@/bot/math'
-import { t } from '@/i18n'
 import { lookTarget, TURN_TIME, type GazeScript } from '@/ui/gaze'
 import { DEFAULT_EXPRESSION, EXPRESSION_BY_ID } from '@/bot/expressions'
 import {
-  COLOR_BY_ID,
   DEFAULT_COLOR,
   DEFAULT_SHAPE,
   SHAPE_BY_ID,
   mixHex,
+  resolveColor,
 } from '@/bot/skins'
 import { blockAt, defaultCycle, offsetOf, type Block } from '@/bot/cycles'
 import { DEMI_VIEWBOX, RAYON } from '@/bot/repere'
@@ -60,6 +59,8 @@ const props = withDefaults(
      * ici c'est le script qui decide de tout, y compris de sa duree.
      */
     gaze?: GazeScript | null
+    /** Lib npm : pas de i18n ; le site peut passer la traduction. */
+    ariaLabel?: string
   }>(),
   {
     size: 320,
@@ -71,6 +72,7 @@ const props = withDefaults(
     cycle: () => defaultCycle().blocks,
     follow: false,
     gaze: null,
+    ariaLabel: 'xBot',
   },
 )
 
@@ -93,7 +95,7 @@ const R = RAYON
 const VB = DEMI_VIEWBOX
 
 const shapeRadii = computed(() => SHAPE_BY_ID.get(props.shape)?.radii ?? null)
-const ink = computed(() => COLOR_BY_ID.get(props.color)?.hex ?? '#0a0a0c')
+const ink = computed(() => resolveColor(props.color))
 const expression = computed(
   () => EXPRESSION_BY_ID.get(props.expression) ?? null,
 )
@@ -503,7 +505,7 @@ function dotAttrs(dot: BotFrame['dots'][number]) {
     :height="props.size"
     :viewBox="`${-VB} ${-VB} ${VB * 2} ${VB * 2}`"
     role="img"
-    :aria-label="t('app.botAria')"
+    :aria-label="props.ariaLabel"
   >
     <defs>
       <!--

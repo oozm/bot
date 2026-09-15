@@ -1,10 +1,72 @@
 # xBot
 
-An SVG recreation of the x.ai bot avatar: **one filled black shape** that morphs between 14 states, **two white shapes** for the eyes that morph independently, on a plain background. No animation library.
+Vue 3 SVG avatar: one filled shape morphing through 14 states, two eyes as mask holes. No animation library.
 
 ![The avatar going through idle, wink, orbit and burst](docs/demo.gif)
 
-## Running it
+Demo: [bot.uilist.com](https://bot.uilist.com/)
+
+## Install (npm)
+
+```bash
+npm install xbot
+# peer: vue ^3.5
+```
+
+```vue
+<script setup>
+import { XBot } from 'xbot'
+</script>
+
+<template>
+  <XBot :size="120" color="#3b93f0" />
+  <XBot :size="64" color="encre" shape="squircle" />
+</template>
+```
+
+| Prop | Description |
+| --- | --- |
+| `size` | Width/height in px (default `320`) |
+| `color` | Palette id (`encre`, `bleu`, …) or `#rgb` / `#rrggbb` |
+| `shape` | Body shape id (default `cercle`) |
+| `expression` | Rest face id (default `neutre`) |
+| `paper` | Background behind the eyes (default `#f9f9f9`) |
+| `frozenAt` | Freeze at time in seconds (no animation loop) |
+| `follow` | Eyes follow the pointer |
+
+Also exported: `COLORS`, `SHAPES`, `EXPRESSIONS`, types. Models: `v-model:state`, `v-model:playing`, `v-model:block`, `v-model:elapsed`.
+
+## 安装（npm）
+
+```bash
+npm install xbot
+# 需要 peer：vue ^3.5
+```
+
+```vue
+<script setup>
+import { XBot } from 'xbot'
+</script>
+
+<template>
+  <XBot :size="120" color="#3b93f0" />
+  <XBot :size="64" color="encre" shape="squircle" />
+</template>
+```
+
+| 属性 | 说明 |
+| --- | --- |
+| `size` | 宽高（像素），默认 `320` |
+| `color` | 预设 id（如 `encre`、`bleu`）或 `#rgb` / `#rrggbb` |
+| `shape` | 身体形状 id，默认 `cercle` |
+| `expression` | 静止表情 id，默认 `neutre` |
+| `paper` | 眼洞后的底色，默认 `#f9f9f9` |
+| `frozenAt` | 定格到某一秒（不跑动画循环） |
+| `follow` | 眼睛跟随鼠标 |
+
+另导出 `COLORS`、`SHAPES`、`EXPRESSIONS` 及类型；可用 `v-model:state` / `playing` / `block` / `elapsed`。
+
+## Running the demo site
 
 ```bash
 pnpm install
@@ -16,6 +78,8 @@ Then open http://localhost:5190.
 ```bash
 pnpm test     # vitest
 pnpm build    # vue-tsc --noEmit && vite build
+pnpm build:lib # npm package → lib/
+pnpm pack:local && pnpm playground # test packed tarball → :5191
 ```
 
 Vue 3, Vite, TypeScript, Tailwind 4. No ESLint and no Prettier: `vue-tsc` is the only gate, so run `pnpm build` before you call something done.
@@ -61,21 +125,6 @@ So the constants in the code are **measurements**, and rounding them to friendli
 | [docs/interface.md](docs/interface.md) | Layout, the three-column scene, CSS traps |
 | [docs/export.md](docs/export.md) | Exporting to SVG, PNG, GIF and MP4 |
 | [docs/i18n.md](docs/i18n.md) | The hand-rolled translation layer |
-
-## Using the component
-
-```vue
-<BloubBot
-  v-model:block="block"
-  v-model:state="state"
-  v-model:playing="playing"
-/>
-<BloubBot state="orbit" :size="120" :frozen-at="1.2" />
-```
-
-`block` is the playback cursor: a montage can play the same state twice, so the index is what identifies where you are; `state` follows it as an output. Pass `frozenAt` and the component renders one exact frame with no animation loop, which is how the thumbnails and the state board are drawn.
-
-Props: `size`, `shape`, `color`, `expression`, `paper`, `frozenAt`, `cycle`, `follow`, `gaze`. Models: `block`, `state`, `playing`, `elapsed`. See [BloubBot.vue](src/components/BloubBot.vue) for the details.
 
 ## Changes
 

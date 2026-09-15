@@ -1,5 +1,8 @@
 node_modules
 dist
+lib
+*.tgz
+playground/node_modules
 .wrangler
 .pnpm-store
 .DS_Store

@@ -147,6 +147,14 @@ export const COLOR_BY_ID = new Map<string, BotColor>(
 )
 export const DEFAULT_COLOR = 'encre'
 
+const HEX_COLOR = /^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/
+
+/** Id palette ou hex `#rgb` / `#rrggbb`. */
+export function resolveColor(color: string): string {
+  if (HEX_COLOR.test(color)) return color
+  return COLOR_BY_ID.get(color)?.hex ?? '#0a0a0c'
+}
+
 /** Melange deux couleurs hex. Sert a la brume de profondeur des particules. */
 export function mixHex(from: string, to: string, t: number): string {
   const parse = (h: string) => {

@@ -822,6 +822,7 @@ watch(
           <BloubBot
             ref="bot"
             class="h-auto max-w-full"
+            :aria-label="t('app.botAria')"
             v-model:state="state"
             v-model:block="block"
             v-model:elapsed="elapsed"

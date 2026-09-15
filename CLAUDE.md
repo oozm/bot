@@ -6,6 +6,7 @@
 pnpm dev       # 5190 (set in vite.config.ts, mirrored in .claude/launch.json)
 pnpm test      # vitest
 pnpm build     # vue-tsc --noEmit && vite build
+pnpm build:lib # bibliotheque npm → lib/
 pnpm lint      # oxlint
 pnpm format    # oxfmt
 pnpm deploy    # build + wrangler (main CI le fait aussi)

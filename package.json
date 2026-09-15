@@ -1,9 +1,8 @@
 {
-  "name": "bot",
-  "private": true,
-  "version": "0.1.1",
+  "name": "xbot",
+  "version": "0.2.0",
   "type": "module",
-  "description": "SVG recreation of the x.ai bot avatar. One shape morphing through 14 states, measured off the reference video frame by frame.",
+  "description": "Vue 3 SVG avatar: one shape morphing through 14 states. Custom size and color.",
   "license": "MIT",
   "author": "zhaojs",
   "repository": {
@@ -15,12 +14,26 @@
     "animation",
     "avatar",
     "vue",
+    "vue3",
+    "component",
     "morphing"
   ],
   "packageManager": "pnpm@11.17.0",
+  "exports": {
+    ".": {
+      "types": "./lib/xbot.d.ts",
+      "import": "./lib/xbot.js"
+    }
+  },
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "build:lib": "vue-tsc --noEmit && vite build --config vite.lib.config.ts",
+    "pack:local": "pnpm build:lib && pnpm pack && pnpm --dir playground install --ignore-workspace",
+    "playground": "pnpm --dir playground dev",
     "preview": "vite preview",
     "deploy": "pnpm build && wrangler deploy",
     "test": "vitest run",
@@ -29,9 +42,11 @@
     "lint:fix": "oxlint --fix",
     "format": "oxfmt"
   },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
   "dependencies": {
-    "mediabunny": "^1.54.0",
-    "vue": "^3.5.41"
+    "mediabunny": "^1.54.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -44,7 +59,9 @@
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
     "vite": "^8.2.1",
+    "vite-plugin-dts": "^4.5.4",
     "vitest": "^4.1.10",
+    "vue": "^3.5.41",
     "vue-tsc": "^3.3.9",
     "wrangler": "^4.130.0"
   }
