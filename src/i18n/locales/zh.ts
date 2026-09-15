@@ -1,10 +1,7 @@
 import type fr from './fr'
 
 /**
- * Chinois simplifie. Le fichier s'appelle `zh-Hans.ts` : c'est l'etiquette BCP 47
- * posee sur `document.documentElement.lang` (`tagDe('zh')`), pas l'id interne `zh`.
- *
- * Trois differences typographiques portees par la traduction
+ * Chinois simplifie. Trois differences typographiques portees par la traduction
  * et pas par le code :
  *
  * - ponctuation pleine largeur (， 。 ？ “ ”), y compris dans les gabarits ;
